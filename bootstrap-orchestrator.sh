@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-REPO_URL="https://github.com/malsonj/ai-orchestrator.git"
+REPO_URL="git@github.com:malsonj/ai-orchestrator.git"
 INSTALL_DIR="/opt/orchestrator"
 
 echo "[ORCH] Installing orchestrator..."
