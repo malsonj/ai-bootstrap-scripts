@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -e
 
 REPO_URL="https://github.com/malsonj/ai-orchestrator.git"
@@ -6,14 +6,14 @@ INSTALL_DIR="/opt/orchestrator"
 
 echo "[ORCH] Installing orchestrator..."
 
-if [ ! -d "" ]; then
-    git clone \ \
+if [ ! -d "$INSTALL_DIR" ]; then
+    git clone $REPO_URL $INSTALL_DIR
 else
-    cd \
+    cd $INSTALL_DIR
     git pull
 fi
 
-cd \
+cd $INSTALL_DIR
 
 python3 -m venv venv
 source venv/bin/activate
@@ -29,8 +29,8 @@ After=network.target
 [Service]
 Type=simple
 User=agent
-WorkingDirectory=\
-ExecStart=\/venv/bin/python -m orchestrator.main
+WorkingDirectory=$INSTALL_DIR
+ExecStart=$INSTALL_DIR/venv/bin/python -m orchestrator.main
 Restart=always
 
 [Install]
@@ -42,19 +42,3 @@ systemctl enable orchestrator.service
 systemctl start orchestrator.service
 
 echo "[ORCH] Orchestrator installed and running."
-
-# Auto-update on reboot
-cat <<EOF >/etc/systemd/system/orchestrator-update.service
-[Unit]
-Description=Auto-update orchestrator
-After=network.target
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/git -C /opt/orchestrator pull
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-systemctl enable orchestrator-update.service
