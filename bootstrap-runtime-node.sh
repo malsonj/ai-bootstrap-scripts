@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-INFRA_REPO_URL="${INFRA_REPO_URL:-https://github.com/malsonj/ai-infrastructure.git}"
+INFRA_REPO_URL="${INFRA_REPO_URL:-git@github.com-ai-infrastructure:malsonj/ai-infrastructure.git}"
 INFRA_REF="${INFRA_REF:-main}"
 INFRA_DIR="${INFRA_DIR:-/opt/ai-infrastructure}"
 GITHUB_TOKEN="${GITHUB_TOKEN:-}"
