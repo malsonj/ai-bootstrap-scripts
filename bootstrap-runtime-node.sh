@@ -13,5 +13,5 @@ else
     git -C "$INFRA_DIR" pull --ff-only
 fi
 
-echo "[BOOTSTRAP] Running orchestrator-node bootstrap..."
-bash "$INFRA_DIR/scripts/bootstrap-orchestrator.sh"
+echo "[BOOTSTRAP] Running runtime-node bootstrap..."
+bash "$INFRA_DIR/scripts/bootstrap-runtime-node.sh"
