@@ -2,7 +2,7 @@
 set -euo pipefail
 
 INFRA_REPO_URL="${INFRA_REPO_URL:-git@github.com-ai-infrastructure:malsonj/ai-infrastructure.git}"
-INFRA_REF="${INFRA_REF:-main}"
+INFRA_REF="${INFRA_REF:-master}"
 INFRA_DIR="${INFRA_DIR:-/opt/ai-infrastructure}"
 GITHUB_TOKEN="${GITHUB_TOKEN:-}"
 BOOTSTRAP_SSH_KEY_PATH="${BOOTSTRAP_SSH_KEY_PATH:-/home/agent/.ssh/id_bootstrap}"
